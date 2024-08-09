@@ -21,39 +21,29 @@
 #include "uHexLib.h"
 
 char string[50];
-char result[100];
+char encoded[100];
+char decoded[50];
 
 
 void doTest() {
     uint16_t i;
-    uHexLib2Bytes res;
 
     // Encode
-    for (i = 0; string[i] != 0; i++) {
-        res = uHexLib::encode(string[i]);
-        result[2*i] = res.a;
-        result[2*i + 1] = res.b;
-    }
-    result[2*i] = 0;
-
+    uHexLib::encode(string, encoded);
     Serial.print("Hexadecimal coding of string \"");
     Serial.print(string);
     Serial.print("\" is \"");
-    Serial.print(result);
+    Serial.print(encoded);
     Serial.println("\"");
 
     delay(500);
 
     // Decode
-    for (i = 0; result[2*i] != 0; i++) {
-        string[i] = uHexLib::decode(result[2*i], result[2*i + 1]);
-    }
-    string[i] = 0;
-
+    uHexLib::decode(encoded, decoded);
     Serial.print("Hexadecimal decoding of string \"");
-    Serial.print(result);
+    Serial.print(encoded);
     Serial.print("\" is \"");
-    Serial.print(string);
+    Serial.print(decoded);
     Serial.println("\"");
 
     Serial.println();
@@ -80,13 +70,13 @@ void loop() {
     Serial.println(" - START -");
     Serial.println();
 
-    strcpy(string, "THE,QUICK,BROWN,FOX,0123456789\0");
+    strcpy(string, "THE,QUICK,BROWN,FOX,0123456789");
     doTest();
 
-    strcpy(string, "https://github.com/Naguissa\0");
+    strcpy(string, "https://github.com/Naguissa");
     doTest();
 
-    strcpy(string, "https://www.foroelectro.net\0");
+    strcpy(string, "https://www.foroelectro.net");
     doTest();
 
 
