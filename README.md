@@ -1,5 +1,8 @@
 # Arduino (and standard C) tiny and cross-device compatible hexadecimal coding/decoding library.
 
+Master status:  ![Arduino CI](https://github.com/Naguissa/uHexLib/workflows/arduino_ci/badge.svg)
+
+
 ## What is this repository for?
 
 Standard C library to encode and decode bytes to hexadecimal.
