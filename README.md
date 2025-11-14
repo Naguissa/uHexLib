@@ -7,7 +7,7 @@ Standard C library to encode and decode bytes to hexadecimal.
 Supports any microcontroller.
 
 
-## Usage ##
+## Usage
 
 You have this new type used as return type of encoding, which has 2 bytes, named 'a' and 'b':
     - uHexLib2Bytes: { uint8_t a; uint8_t b; }
@@ -17,8 +17,8 @@ You have uHexLib class with following static methods:
     - **uHexLib2Bytes uHexLib::encode(const char);** : Given one char it encodes it to 2 base64 chars and returns the struct
     - **char uHexLib::decode(const char inA, const char inB);** : Given two base64 chars it decodes and returns them as 1 char
 
-    - **uint16_t uHexLib::encode(const char in[], char out[]);** : Given one char it encodes it to 2 base64 chars and returns the struct
-    - **uint16_t  uHexLib::decode(const char in[], char out[]);** : Given two base64 chars it decodes and returns them as 1 char
+    - **uint16_t uHexLib::encode(const char in[], char out[]<, optional uint16_t length>);** : Given one char array encodes it to 2*size base64 char array and returns the original array processed bytes number.
+    - **uint16_t  uHexLib::decode(const char in[], char out[]<, optional uint16_t original_length>);** : Given one base64 char array it decodes to size/2 decoded char array and returns the original array decoded bytes number.
     
 
 ## How do I get set up?

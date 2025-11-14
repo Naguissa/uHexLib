@@ -17,7 +17,7 @@
  * @author Naguissa
  * @see <a href="https://github.com/Naguissa/uHexLib">https://github.com/Naguissa/uHexLib</a>
  * @see <a href="mailto:naguissa@foroelectro.net">naguissa@foroelectro.net</a>
- * @version 2.1.0
+ * @version 2.2.0
  */
 #ifndef _uHexLib_h_
     #define _uHexLib_h_

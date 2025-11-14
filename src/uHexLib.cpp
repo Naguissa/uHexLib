@@ -17,7 +17,7 @@
  * @author Naguissa
  * @see <a href="https://github.com/Naguissa/uHexLib">https://github.com/Naguissa/uHexLib</a>
  * @see <a href="mailto:naguissa@foroelectro.net">naguissa@foroelectro.net</a>
- * @version 2.1.0
+ * @version 2.2.0
  */
 #include "uHexLib.h"
 
@@ -64,7 +64,11 @@ char uHexLib::decode(const char inA, const char inB) {
 uint16_t uHexLib::encode(const char original[], char encoded[], uint16_t originalLength) {
     uint16_t i;
     uHexLib2Bytes res;
-    for (i = 0; original[i] != 0 || i < originalLength; i++) {
+    for (
+        i = 0;
+        (original[i] != 0 && originalLength == 0) || i < originalLength;
+        i++
+    ) {
         res = uHexLib::encode(original[i]);
         encoded[2*i] = res.a;
         encoded[2*i + 1] = res.b;
@@ -75,7 +79,11 @@ uint16_t uHexLib::encode(const char original[], char encoded[], uint16_t origina
 
 uint16_t uHexLib::decode(const char original[], char decoded[], uint16_t originalLength) {
     uint16_t i;
-    for (i = 0; original[2*i] != 0 || i < originalLength; i++) {
+    for (
+        i = 0;
+        (original[2*i] != 0 && originalLength == 0) || i < originalLength;
+        i++
+    ) {
         decoded[i] = uHexLib::decode(original[2*i], original[2*i + 1]);
     }
     decoded[i] = 0;
