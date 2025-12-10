@@ -37,6 +37,7 @@
             static uint16_t decode(const char [], char [], uint16_t = 0);
         private:
             // Purely static methods
+            static char _decodeHalf(const char);
             uHexLib();
     };
 

@@ -42,22 +42,17 @@ uHexLib2Bytes uHexLib::encode(const char in) {
     return hexEncodeRet;
 }
 
+char uHexLib::_decodeHalf(const char in) {
+    if (in >= '0' && in <= '9') return (in - '0');
+    if (in >= 'A' && in <= 'F') return (in - 'A' +10);
+    if (in >= 'a' && in <= 'f') return (in - 'a' +10);
+    return 0;
+}
+
+
 
 char uHexLib::decode(const char inA, const char inB) {
-    // MSB
-    char ret = (
-        inA < 'A' ?
-        (inA - '0') :
-        (inA - 'A' + 10)
-    );
-    ret = ret << 4;
-    // LSB
-    ret += (
-        inB < 'A' ?
-        (inB - '0') :
-        (inB - 'A' + 10)
-    );
-    return ret;
+    return (_decodeHalf(inA) << 4) + _decodeHalf(inB);
 }
 
 
